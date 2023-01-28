@@ -26,7 +26,6 @@ export default withClerkMiddleware(async (request: NextRequest) => {
   // const { success, pending, limit, reset, remaining } = await ratelimit.limit(
   //   `mw_${userId ? userId : ip}`,
   // );
-
   // const res = success
   //   ? NextResponse.next()  
   //   : NextResponse.rewrite(new URL("/api/blocked", request.url), request);
