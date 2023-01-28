@@ -28,7 +28,9 @@ const PostCard: React.FC<{
 }> = ({ post }) => {
   return (
     <View className="rounded-lg border-2 border-gray-500 p-4">
-      <Text className="text-xl font-semibold text-[#cc66ff]">{post.title}</Text>
+      <Text className="text-base font-semibold text-[#cc66ff]">
+        {post.title}
+      </Text>
       <Text className="text-white">{post.content}</Text>
     </View>
   );
@@ -82,6 +84,11 @@ export const HomeScreen = () => {
         <Text className="mx-auto pb-2 text-5xl font-bold text-white">
           Create <Text className="text-[#cc66ff]">T3</Text> Turbo
         </Text>
+        {postQuery && (
+          <Text className="mx-auto pb-2 text-base font-bold text-white">
+            {JSON.stringify(postQuery)}
+          </Text>
+        )}
 
         <View className="py-2">
           {showPost ? (

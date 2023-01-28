@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "expo",
-    "slug": "expo",
+    "slug": "ai",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,9 +12,12 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/923763fb-1529-4632-bfd3-7b1d14301176"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -26,6 +29,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "923763fb-1529-4632-bfd3-7b1d14301176"
+      }
+    },
+    "owner": "mariogalla",
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
