@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>AI Test App</title>
+        <title>Our AI Test App</title>
         <meta name="description" content="AI Test Case" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
