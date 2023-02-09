@@ -15,3 +15,12 @@ model Post {
     title   String
     content String
 }
+
+model IntegrationSuccessFactors {
+    organizationId      String @id 
+    secretKey   String?
+    accessToken    String?
+    dataCenterUrl    String?
+    companyId    String?
+
+}

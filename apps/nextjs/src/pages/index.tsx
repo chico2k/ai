@@ -14,7 +14,7 @@ const Home: NextPage = () => {
         <meta name="description" content="AI Test Case" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="flex h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+      <main className="flex min-h-screen flex-col items-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-8">
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
             AI <span className="text-[hsl(280,100%,70%)]">Test</span> App
@@ -31,15 +31,15 @@ const Home: NextPage = () => {
 export default Home;
 
 const AuthShowcase: React.FC = () => {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, isLoaded } = useAuth();
   const { register, handleSubmit, reset, formState } = useForm();
-  const [data, setData] = useState<string>("");
+  const [data, setData] = useState<any>();
   const { isSubmitting } = formState;
   const createRequestMutation = trpc.ai.createRequest.useMutation();
 
   const submitHandler = async (command: string) => {
     const result = await createRequestMutation.mutateAsync({ command });
-    setData(result || "");
+    setData(result);
   };
 
   return (
@@ -60,43 +60,44 @@ const AuthShowcase: React.FC = () => {
       )}
       {isSignedIn && (
         <>
-          <div className="w-full max-w-3xl">
-            <form
-              onSubmit={handleSubmit((data) => submitHandler(data.command))}
-            >
-              <label
-                htmlFor="command"
-                className="block text-sm font-medium text-gray-300"
+          <div className=" w-full max-w-7xl ">
+            <div className="">
+              <form
+                onSubmit={handleSubmit((data) => submitHandler(data.command))}
               >
-                Give me your command
-              </label>
-              <div className="mt-1">
-                <textarea
-                  {...register("command")}
-                  rows={6}
-                  name="command"
-                  id="command"
-                  className="block w-full rounded-md border-gray-300 px-2 py-3 text-indigo-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <button
-                type="submit"
-                className="mt-6 inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Submit
-              </button>
-              <button
-                onClick={() => reset()}
-                className="ml-4 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-              >
-                Reset
-              </button>
-            </form>
-            <Result isSubmitting={isSubmitting} data={data} />
+                <label
+                  htmlFor="command"
+                  className="block text-sm font-medium text-gray-300"
+                >
+                  Give me your command
+                </label>
+                <div className="mt-1">
+                  <input
+                    {...register("command")}
+                    name="command"
+                    id="command"
+                    className="block w-full rounded-md border-gray-300 px-2 py-3 text-indigo-700 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="mt-6 inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Submit
+                </button>
+                <button
+                  onClick={() => reset()}
+                  className="ml-4 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  Reset
+                </button>
+              </form>
+              <Result isSubmitting={isSubmitting} data={data} />
+            </div>
           </div>
         </>
       )}
-      {!isSignedIn && (
+      {!isSignedIn && isLoaded && (
         <p className="text-center text-2xl text-white">
           <Link href="/sign-in">Sign In</Link>
         </p>
@@ -114,13 +115,17 @@ export const Result = ({
 }) => {
   return (
     <>
-      <div className="flex flex-col justify-center pt-16">
+      <div className="flex flex-1 grow flex-col justify-center overflow-y-scroll bg-slate-50 pt-16">
         {isSubmitting && (
-          <p className="text-3xl text-white">
+          <p className="text-3xl text-gray-700">
             <Spinner />
           </p>
         )}
-        {!isSubmitting && <p className="text-white">{data} </p>}
+        {!isSubmitting && (
+          <p className="text-gray-700">
+            <pre>{JSON.stringify(data, null, 2)}</pre>{" "}
+          </p>
+        )}
       </div>
     </>
   );

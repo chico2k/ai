@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<saml2:Assertion xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion"
+    ID="f1745e21-50d9-431d-898d-819247f2a990" IssueInstant="2023-02-03T16:23:40.169Z" Version="2.0"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <saml2:Issuer>www.successfactors.com/oauth/idp</saml2:Issuer>
+    <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"
+                xmlns:ds="http://www.w3.org/2000/09/xmldsig#" />
+            <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"
+                xmlns:ds="http://www.w3.org/2000/09/xmldsig#" />
+            <ds:Reference URI="#f1745e21-50d9-431d-898d-819247f2a990"
+                xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                <ds:Transforms xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"
+                        xmlns:ds="http://www.w3.org/2000/09/xmldsig#" />
+                    <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"
+                        xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                        <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"
+                            PrefixList="xs" />
+                    </ds:Transform>
+                </ds:Transforms>
+                <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"
+                    xmlns:ds="http://www.w3.org/2000/09/xmldsig#" />
+                <ds:DigestValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    sPeuytzMm7DdeZe+yvIhNDq4qTA=</ds:DigestValue>
+            </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+            gXKEi6wiRuQmZYgFNyeMjtfN2AehGGIIOxCIJ1DCIxEXvHaTnLts8j0T48oATD4+FsJD41wQtS54
+            libQUIjFdjAjWPyEup/yAlpvRq25bOCM9VTlAleQlTcUR5UBUrqrGQR0SRYY1NvFc0NSybSxc3MI
+            5Tp1fVvR1b/NeHMes6w9wKH5GdJpRrBESklYv9bUWJoW43+GYVIe38W6655MGM9NOo5BvME2AJ2Y
+            gdcTcMsx6uih75V+sl2V8TCcc2ypjMGfxygSr3Ws0HS+NzFwz629HRAtg0cdBDRwIa3QVX/H1TtP
+            s1/kqij+fOp5CQcspeeW0AK16U1oQ54j1XDUtQ==
+</ds:SignatureValue>
+        <ds:KeyInfo>
+            <ds:X509Data>
+                <ds:X509Certificate>MIICDTCCAXagAwIBAgIETJj9LjANBgkqhkiG9w0BAQUFADBLMQswCQYDVQQGEwJVUzEbMBkGA1UE
+                    ChMSU3VjY2Vzc2ZhY3RvcnMuY29tMQwwCgYDVQQLEwNPcHMxETAPBgNVBAMTCFNGIEFkbWluMB4X
+                    DTEwMDkyMTE4NDUwMloXDTI1MDkxOTE4NDUwMlowSzELMAkGA1UEBhMCVVMxGzAZBgNVBAoTElN1
+                    Y2Nlc3NmYWN0b3JzLmNvbTEMMAoGA1UECxMDT3BzMREwDwYDVQQDEwhTRiBBZG1pbjCBnzANBgkq
+                    hkiG9w0BAQEFAAOBjQAwgYkCgYEArA9RLNnL9Pt6xynFfYfa8VXAXFDG9Y8xkgs3lhIOlsjqEYwb
+                    SoghiqJIJvfYM45kx3aB7ZrN96tAR5uUupEsu/GcS6ACxhfruW+BY6uw8v6/w2vXhBdfFjBoO+Ke
+                    Lx4k3llleVgKsmNlf81okOXv1ree8wErfZ3ssnNxkuQgGB0CAwEAATANBgkqhkiG9w0BAQUFAAOB
+                    gQBeBCSMFnY8TB6jtWoSP/lorBudhptgvO7/3r+l/QK0hdk6CVv+VQmSilNPgWVgU9ktZGbNkZhw
+                    IgwnqIQHAi6631ufkYQJB+48YUe1q/pv6EWaeIwGvcGYSXZp/E/aGZPtceTIXFPfqOyHQoFtb0nq
+                    MMFWoDhpXUHmlroyTc9sJg==</ds:X509Certificate>
+            </ds:X509Data>
+        </ds:KeyInfo>
+    </ds:Signature>
+    <saml2:Subject>
+        <saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">sfadmin</saml2:NameID>
+        <saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+            <saml2:SubjectConfirmationData NotOnOrAfter="2023-02-03T16:33:40.169Z"
+                Recipient="https://apisalesdemo2.successfactors.eu/oauth/token" />
+        </saml2:SubjectConfirmation>
+    </saml2:Subject>
+    <saml2:Conditions NotBefore="2023-02-03T16:13:40.169Z" NotOnOrAfter="2023-02-03T16:33:40.169Z">
+        <saml2:AudienceRestriction>
+            <saml2:Audience>www.successfactors.com</saml2:Audience>
+        </saml2:AudienceRestriction>
+    </saml2:Conditions>
+    <saml2:AuthnStatement AuthnInstant="2023-02-03T16:23:40.169Z"
+        SessionIndex="ff423332-d34b-4440-9034-c50e2080bc68">
+        <saml2:AuthnContext>
+            <saml2:AuthnContextClassRef>
+                urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml2:AuthnContextClassRef>
+        </saml2:AuthnContext>
+    </saml2:AuthnStatement>
+    <saml2:AttributeStatement>
+        <saml2:Attribute Name="api_key">
+            <saml2:AttributeValue xsi:type="xs:string">M2ViOTJiNWI2OGFhYWFjNzk0NGE5NDdiZTcyNw</saml2:AttributeValue>
+        </saml2:Attribute>
+    </saml2:AttributeStatement>
+</saml2:Assertion>
